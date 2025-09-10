@@ -1,21 +1,18 @@
 const { test, expect } = require('@playwright/test');
 
-test('заполнение формы и проверка результата', async ({ page }) => {
-  await page.goto('https://www.w3schools.com/html/html_forms.asp');
+test('заполнение локальной формы и проверка результата', async ({ page }) => {
+  await page.goto('http://localhost:8080/form.html');
 
-  // Находим поле "First name"
-  const firstNameInput = await page.locator('input[name="firstname"]');
+  const firstNameInput = page.locator('#firstname');
+  const lastNameInput = page.locator('#lastname');
+
+  await firstNameInput.waitFor({ state: 'visible' });
+  await lastNameInput.waitFor({ state: 'visible' });
+
   await firstNameInput.fill('Иван');
-
-  // Находим поле "Last name"
-  const lastNameInput = await page.locator('input[name="lastname"]');
   await lastNameInput.fill('Иванов');
 
-  // Кнопку "Submit" — на этой странице она просто input[type="submit"]
-  const submitButton = await page.locator('input[type="submit"]');
-  await submitButton.click();
+  await page.locator('#submitBtn').click();
 
-  // Так как страница не отправляет форму на сервер, проверим, что поля всё ещё содержат текст
-  await expect(firstNameInput).toHaveValue('Иван');
-  await expect(lastNameInput).toHaveValue('Иванов');
+  await expect(page.locator('#result')).toHaveText('Привет, Иван Иванов!');
 });

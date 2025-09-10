@@ -1,3 +1,4 @@
+// tests/example.spec.js
 const { test, expect } = require('@playwright/test');
 
 test('открыть страницу и проверить заголовок', async ({ page }) => {

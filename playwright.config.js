@@ -1,13 +1,19 @@
-// playwright.config.js
-/** @type {import('@playwright/test').PlaywrightTestConfig} */
+const { devices } = require('@playwright/test');
+
 const config = {
-  testDir: './tests',   // <-- только эта папка
+  testDir: './tests',
   timeout: 30 * 1000,
-  workers: 1,  // <- только один тест за раз
+  workers: 1,
   use: {
-    headless: false,   // <- теперь браузер будет виден
-viewport: { width: 1280, height: 720 }
+    headless: false,
+    viewport: { width: 1280, height: 720 },
+    screenshot: 'only-on-failure',  // скриншоты только при падении
+    video: 'retain-on-failure'      // видео только при падении
   },
+  reporter: [
+    ['list'],                          // стандартный вывод в консоль
+    ['allure-playwright']              // подключаем Allure
+  ],
   projects: [
     { name: 'chromium', use: { browserName: 'chromium' } },
     { name: 'firefox',  use: { browserName: 'firefox' } },

@@ -1,0 +1,7 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","439","заполнение локальной формы и проверка результата","firefox","Wed Sep 10 04:12:14 MSK 2025","passed","Wed Sep 10 04:12:14 MSK 2025","","form.spec.js","",""
+"","1781","открыть страницу и проверить заголовок","firefox","Wed Sep 10 04:12:11 MSK 2025","passed","Wed Sep 10 04:12:13 MSK 2025","","example.spec.js","",""
+"","644","заполнение локальной формы и проверка результата","chromium","Wed Sep 10 04:12:10 MSK 2025","passed","Wed Sep 10 04:12:11 MSK 2025","","form.spec.js","",""
+"","859","открыть страницу и проверить заголовок","webkit","Wed Sep 10 04:12:15 MSK 2025","passed","Wed Sep 10 04:12:16 MSK 2025","","example.spec.js","",""
+"","582","заполнение локальной формы и проверка результата","webkit","Wed Sep 10 04:12:16 MSK 2025","passed","Wed Sep 10 04:12:16 MSK 2025","","form.spec.js","",""
+"","950","открыть страницу и проверить заголовок","chromium","Wed Sep 10 04:12:09 MSK 2025","passed","Wed Sep 10 04:12:10 MSK 2025","","example.spec.js","",""

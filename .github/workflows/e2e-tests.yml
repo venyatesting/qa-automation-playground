@@ -11,25 +11,40 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Клонируем репозиторий
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # 2️⃣ Устанавливаем Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
+      # 3️⃣ Устанавливаем зависимости
       - name: Install dependencies
         run: npm ci
 
+      # 4️⃣ Устанавливаем браузеры Playwright
       - name: Install Playwright browsers
         run: npx playwright install
 
-      - name: Start HTTP server
+      # 5️⃣ Устанавливаем wait-on для ожидания сервера
+      - name: Install wait-on
+        run: npm install --save-dev wait-on
+
+      # 6️⃣ Поднимаем сервер в фоне
+      - name: Start local server
         run: npm run start-server &
-      
-      - name: Run E2E tests
+
+      # 7️⃣ Ждём, пока сервер будет доступен
+      - name: Wait for server
+        run: npx wait-on http://localhost:8080/form.html
+
+      # 8️⃣ Запускаем E2E тесты
+      - name: Run Playwright E2E tests
         run: npm run test:e2e
-        
+
+      # 9️⃣ Генерируем Allure-отчёт
       - name: Generate Allure report
         run: npm run allure:generate

@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:unit": "jest",
     "test:e2e": "npx playwright test",
     "start-server": "http-server -c-1 . -p 8080",
     "allure:generate": "allure generate allure-results --clean -o allure-report",

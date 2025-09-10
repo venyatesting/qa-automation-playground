@@ -1,11 +1,12 @@
 const { test, expect } = require('@playwright/test');
 
 test('заполнение локальной формы и проверка результата', async ({ page }) => {
-  await page.goto('http://localhost:8080/form.html');
+  await page.goto('http://localhost:8080/form.html', { waitUntil: 'networkidle' });
 
   const firstNameInput = page.locator('#firstname');
   const lastNameInput = page.locator('#lastname');
 
+  // Ждём, пока поля станут видимыми
   await firstNameInput.waitFor({ state: 'visible' });
   await lastNameInput.waitFor({ state: 'visible' });
 

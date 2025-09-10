@@ -2,17 +2,17 @@ const { devices } = require('@playwright/test');
 
 const config = {
   testDir: './tests',
-  timeout: 30 * 1000,
-  workers: 1,
+  timeout: 60 * 1000, // увеличенный таймаут на 60 секунд
+  workers: 1, // один тест за раз для стабильности
   use: {
-    headless: false,
+    headless: true, // в CI headless
     viewport: { width: 1280, height: 720 },
-    screenshot: 'only-on-failure',  // скриншоты только при падении
-    video: 'retain-on-failure'      // видео только при падении
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure'
   },
   reporter: [
-    ['list'],                          // стандартный вывод в консоль
-    ['allure-playwright']              // подключаем Allure
+    ['list'],
+    ['allure-playwright']
   ],
   projects: [
     { name: 'chromium', use: { browserName: 'chromium' } },

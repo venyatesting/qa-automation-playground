@@ -38,7 +38,7 @@ jobs:
 
       # Запускаем тесты
       - name: Run Playwright E2E tests
-        run: npm run test:e2e
+        run: npx playwright test --reporter=html --project=chromium --project=firefox
 
       # Генерируем Allure отчёт
       - name: Generate Allure report

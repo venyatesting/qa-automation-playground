@@ -43,3 +43,10 @@ jobs:
       # Генерируем Allure отчёт
       - name: Generate Allure report
         run: npm run allure:generate
+    
+      - name: Сохранение HTML отчёта
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: playwright-report
+          path: playwright-report

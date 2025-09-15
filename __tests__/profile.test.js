@@ -1,4 +1,4 @@
-const profile = require("../profile");
+const profile = require("../js-basics/profile");
 
 test("у профиля правильное имя", () => {
   expect(profile.name).toBe("Иван");

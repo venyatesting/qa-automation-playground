@@ -1,7 +1,7 @@
 const firstName = "Иван";
 let age = 30;
 const isTester = true;
-const skills = ["manual testing", "qa processes", "automation in progress"];
+const skills = ["manual testing", "qa testing processes", "automation in progress"];
 const profile = {
   name: firstName,
   age: age,
